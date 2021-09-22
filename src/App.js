@@ -23,12 +23,48 @@ function App() {
     console.log(data);
   }
 
+  function strawberryMultiplier(strawberryValue){
+    let emoji = "🍓";
+    for (let i = 1; i < strawberryValue; i++) {
+      emoji += "🍓";
+    }
+    return <span className="emoji">{emoji}</span>;
+  }
+
+  function bananaMultiplier(bananaValue){
+    let emoji = "🍌";
+    for (let i = 1; i < bananaValue; i++) {
+      emoji += "🍌";
+    }
+    return <span className="emoji">{emoji}</span>;
+  }
+
+  function appleMultiplier(appleValue){
+    let emoji = "🍏";
+    for (let i = 1; i < appleValue; i++) {
+      emoji += "🍏";
+    }
+    return <span className="emoji">{emoji}</span>;
+  }
+
+  function kiwiMultiplier(kiwiValue){
+    let emoji = "🥝";
+    for (let i = 1; i < kiwiValue; i++) {
+      emoji += "🥝";
+    }
+    return <span className="emoji">{emoji}</span>;
+  }
+
   return (
     <>
-      /*We beginnen met de fruit counter*/
+      {/*We beginnen met de fruit counter*/}
+
       <h1>Fruitmand bezorgservice</h1>
         <div className="fruit" id="strawberry">
-          <span className="emoji">🍓</span>
+          <span className="emoji">
+              {strawberryMultiplier(strawberryValue)}
+            </span>
+
           <h2>Aardbeien</h2>
           <span className="fruitButtons">
             <button onClick={() => {
@@ -39,15 +75,17 @@ function App() {
               -
             </button>
             <span>{strawberryValue}</span>
-            {strawberryValue >3 && <p>🍓🍓🍓</p>}
 
-            <button onClick={() => setStrawberryValue(strawberryValue + 1)}>
+
+            <button onClick={() => setStrawberryValue(strawberryValue + 1)} >
               +
             </button>
           </span>
         </div>
         <div className="fruit" id="banana">
-          <span className="emoji">🍌</span>
+        <span className="emoji">
+          {bananaMultiplier(bananaValue)}
+        </span>
           <h2>Bananen</h2>
           <span className="fruitButtons">
             <button onClick={() => {
@@ -64,7 +102,9 @@ function App() {
           </span>
         </div>
         <div className="fruit" id="apple">
-          <span className="emoji">🍏</span>
+          <span className="emoji">
+            {appleMultiplier(appleValue)}
+          </span>
           <h2>Appels</h2>
           <span className="fruitButtons">
             <button onClick={() => {
@@ -81,7 +121,9 @@ function App() {
           </span>
         </div>
         <div className="fruit" id="kiwi">
-          <span className="emoji">🥝</span>
+          <span className="emoji">
+            {kiwiMultiplier(kiwiValue)}
+          </span>
           <h2>Kiwi's</h2>
           <span className="fruitButtons">
             <button onClick={() => {
@@ -101,7 +143,7 @@ function App() {
           <button onClick={resetCounters}>RESET</button>
         </div>
 
-    /*  Start van het formulier (via React Hook Form) */
+      {    /*  Start van het formulier (via React Hook Form) */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Voornaam:
