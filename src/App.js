@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Fruitcounter
-  from './components/Fruitcounter';
 
 function App() {
   const [strawberryValue, setStrawberryValue] = React.useState(0);
@@ -9,11 +7,14 @@ function App() {
   const [appleValue, setAppleValue] = React.useState(0);
   const [kiwiValue, setKiwiValue] = React.useState(0);
 
-  function strawberryValueSetter(children){
-    if (children.value === "-"){
-      console.log("hoi minus aardbei");
-    }
+  function resetCounters() {
+    setStrawberryValue(0);
+    setBananaValue(0);
+    setAppleValue(0);
+    setKiwiValue(0);
+    console.log("The Great Reset")
   }
+
   return (
     <>
       <h1>Fruitmand bezorgservice</h1>
@@ -21,40 +22,56 @@ function App() {
           <span className="emoji">🍓</span>
           <h2>Aardbeien</h2>
           <span className="fruitButtons">
-            <button onClick={setStrawberryValue+1}>-</button>
+            <button onClick={() => setStrawberryValue(strawberryValue - 1)}>
+              -
+            </button>
             <span>{strawberryValue}</span>
-            <button>+</button>
+            <button onClick={() => setStrawberryValue(strawberryValue + 1)}>
+              +
+            </button>
           </span>
         </div>
         <div className="fruit" id="banana">
           <span className="emoji">🍌</span>
           <h2>Bananen</h2>
           <span className="fruitButtons">
-            <button>-</button>
+            <button onClick={() => setBananaValue(bananaValue - 1)}>
+              -
+            </button>
             <span>{bananaValue}</span>
-            <button>+</button>
+            <button onClick={() => setBananaValue(bananaValue + 1)}>
+              +
+            </button>
           </span>
         </div>
         <div className="fruit" id="apple">
           <span className="emoji">🍏</span>
           <h2>Appels</h2>
           <span className="fruitButtons">
-            <button>-</button>
+            <button onClick={() => setAppleValue(appleValue - 1)}>
+              -
+            </button>
             <span>{appleValue}</span>
-            <button>+</button>
+            <button onClick={() => setAppleValue(appleValue +  1)}>
+              +
+            </button>
           </span>
         </div>
         <div className="fruit" id="kiwi">
           <span className="emoji">🥝</span>
           <h2>Kiwi's</h2>
           <span className="fruitButtons">
-            <button>-</button>
+            <button onClick={() => setKiwiValue(kiwiValue - 1)}>
+              -
+            </button>
             <span>{kiwiValue}</span>
-            <button>+</button>
+            <button onClick={() => setKiwiValue(kiwiValue + 1)}>
+              +
+            </button>
           </span>
         </div>
         <div className="reset-button">
-          <button>RESET</button>
+          <button onClick={resetCounters}>RESET</button>
         </div>
 
     </>
