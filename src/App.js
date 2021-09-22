@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
               -
             </button>
             <span>{strawberryValue}</span>
+            {strawberryValue >3 && <p>🍓🍓🍓</p>}
+
             <button onClick={() => setStrawberryValue(strawberryValue + 1)}>
               +
             </button>
